@@ -1,0 +1,84 @@
+This file explains the folder structure of the project.
+
+Note: Things explained in the file are not absolute and can be changed based on the
+      requirement of the project at the time of need.
+
+folder structure used in this boilerplate is shown below: 
+    Root level  
+            |___ configuration
+            |   |___ webpack.common.js
+            |   |___ webpack.dev.js
+            |   |___ webpack.prod.js
+            |   |___ tsconfig.json
+            |   
+            |___ node_modules
+            |___ docker
+            |___ public
+            |___ src
+            |   |___ logger
+            |   |   |___ ErrorBoundary.tsx
+            |   |   
+            |   |___ utils
+            |   |___ contexts
+            |   |___ components
+            |   |___ styles
+            |   |___ pages
+            |   
+            |___ 
+
+========================================================================================
+# Files 
+
+1. 
+
+========================================================================================
+# Folders
+
+1. logger
+This folder contains the custom logger componenet available at react official documentation
+link :- https://reactjs.org/docs/error-boundaries.html
+
+Application logging involves recording information about your application’s runtime behavior to a more persistent medium.
+There are two things to note here. 
+ 1.The first is that logging provides us with information about what the application does as   
+   it\u2019s running.
+ 2.The second is that we want our logs to stick around for a while rather than disappearing  
+   immediately. 
+
+This folder contains a react class component called ErrorBoundary, Error boundaries work like a JavaScript catch {} block, but for components. Only class components can be error boundaries.
+Way to use it: wrap your root level entry point component as shown below 
+        <ErrorBoundry>
+            <App />
+        <ErrorBoundry/>
+All this component does is catches the error and makes an api request to backend about the error 
+that occoured in our application's runtime.
+
+2. configuration
+This folder contains the configuration needed to spin up our app in the required environment which can be development or stagging or production.
+Files present are 
+    1. webpack.common.js
+    2. webpack.dev.js
+    3. webpack.prod.js
+    4. tsconfig.json
+The first one contains common configuration settings that is shared between number 2 and number 3.
+The second one contains settings required to spin app in development enviornment.
+The third one contains settings required to spin app in production enviornment.
+The fourth one contains settings required for our typescript compiler, these configuration are only for type checking and not for code transpilation.
+To gennerate tsconfig.json run the following command
+    npx tsc --init
+
+3. utils
+This folder contains all the useful function that are being used in the project
+
+# Dependencies
+-> devDependencies used are as follows
+   1. @types/react
+   2. @types/react-dom
+   3. @bable/preset-typescript
+   5. @bable/preset-react
+   6. @bable/preset-env
+   7. @bable/core
+   8. @babel/plugin-transform-runtime
+   9. typescript
+   10. babel-loader
+   11. url-loader
